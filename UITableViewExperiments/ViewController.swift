@@ -13,10 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     let numbers = (0..<20).map({ "Row " + $0.description })
-    
-    
     let textCellIdentifier = "TextCell"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
