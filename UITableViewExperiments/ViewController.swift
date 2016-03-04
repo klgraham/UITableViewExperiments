@@ -12,7 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    let tvShows = ["Sherlock", "Luther", "Once Upon a Time", "Supergirl", "House of Cards", "Jessica Jones", "Breaking Bad"]
+    let numbers = (0..<20).map({ "Row " + $0.description })
+    
     
     let textCellIdentifier = "TextCell"
     
@@ -30,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tvShows.count
+        return numbers.count
     }
     
     // this function created the cell in the tableView that will hold the data
@@ -40,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = tvShows[row]
+        cell.textLabel?.text = numbers[row]
         
         return cell
     }
@@ -52,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
-        print(tvShows[row])
+        print(numbers[row])
     }
 
     override func didReceiveMemoryWarning() {
